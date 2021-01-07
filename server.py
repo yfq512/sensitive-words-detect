@@ -13,16 +13,25 @@ def clean_str(text_list):
         if not n in pass_sign:
             x.append(n)
     # 对相邻词进行拼接，适应性更强
-    y = []
-    for m in range(len(x)):
-        try:
-            y.append(x[m]+x[m+1])
-        except:
-            continue
-    for k in y:
-        x.append(k)
-    print(x)
+    x = words_extend(x,4)
     return x
+
+def words_extend(words_list, nums): # 对列表临近元素重组为新元素，从而进行列表拓展
+    words_list_org = words_list.copy()
+    nums = min(len(words_list_org), nums)
+    for n in range(2, nums+1):
+        temp_list = []
+        for i in range(len(words_list_org)):
+            try:
+                temp_word = words_list_org[i]
+                for k in range(1,n):
+                    temp_word = temp_word + words_list_org[i+k]
+                temp_list.append(temp_word)
+            except:
+                continue
+        for m in temp_list:
+            words_list.append(m)
+    return words_list
 
 def load_keywords(keywords_path):
     keywords_list = []
