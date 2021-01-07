@@ -56,7 +56,7 @@ def updata_keywords(updatawordsroot, keywords_path):
 def find_keywords(text, keywords_list, class_word_list):
     # 数据热更新
     new_keywords_list, new_class_word_list = updata_keywords(updatawordsroot, keywords_path)
-    print(new_keywords_list)
+    # print(new_keywords_list)
     for n in range(len(new_keywords_list)):
         if not new_keywords_list[n] in keywords_list:
             keywords_list.append(new_keywords_list[n])
@@ -69,7 +69,6 @@ def find_keywords(text, keywords_list, class_word_list):
     _seg_list = "_".join(__seg_list)
     seg_list = _seg_list.split('_')
     seg_list = clean_str(seg_list) # 过滤无效字符
-    print('分词结果： ', seg_list)
     # 遍历分词
     keywords_out = []
     class_words_out = []
