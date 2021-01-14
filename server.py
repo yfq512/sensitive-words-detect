@@ -196,5 +196,5 @@ def del_keyword():
 
 if __name__ == '__main__':
     host = '0.0.0.0'
-    port = '8879'
+    port = '8876'
     app.run(debug=True, host=host, port=port)
